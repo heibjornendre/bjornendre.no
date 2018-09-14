@@ -4,11 +4,11 @@ html, body {
 
 canvas {
     border: none;
-    background-color: #030D4B;
+    background-color: #0A0A0A;
 }
 
 body {
-    background-color: #030D4B;
+    background-color: #0A0A0A;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     display: flex;
@@ -28,7 +28,7 @@ body {
 }
 
 #floater h1{
-    color: #f74244;
+    color: #F4F4F4;
     font-size: 170px;
     font-weight: 900;
     letter-spacing: -4.2px;
@@ -38,7 +38,7 @@ body {
 }
 
 #floater p {
-    color: #DFE1E6;
+    color: #c5c5c5;
     font-size: 42px;
     font-weight: 600;
     letter-spacing: -1px;
@@ -54,8 +54,8 @@ body {
     bottom: 0;
     font-size: 16px;
     text-align: left;
-    color: #6B7191;
-    background: #030D4B;
+    color: #616161;
+    background: #000000;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -87,11 +87,11 @@ body {
 
 #info a:link, #info a:visited {
     text-decoration: line-through;
-    color: #6B7191;
+    color: #616161;
 }
 #info a:hover, #info a:active {
     text-decoration: none;
-    color: #6B7191;
+    color: #616161;
 }
 
 #info:hover li,
@@ -99,5 +99,5 @@ body {
 #info:hover a:visited,
 #info:hover a:hover, 
 #info:hover a:active {
-    color: #DFE1E7;
+    color: #DFE1E6;
 }

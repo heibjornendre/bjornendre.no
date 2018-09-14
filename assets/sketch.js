@@ -11,12 +11,12 @@ let magic = 8;
 function setup() {
     createCanvas(windowWidth, windowHeight);
     noStroke();
-    fill(112, 54, 90);
-    background('rgb(6, 17, 77)');
+    fill(56, 56, 56);
+    background('rgb(10, 10, 10)');
 }
 
 function draw() {
-    background('rgba(3, 13, 75, 0.20)');
+    background('rgba(10, 10, 10, 0.20)');
 
     // make a x and y grid of ellipses
     for (let x = 0; x <= width; x = x + xs) {
@@ -40,5 +40,5 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    background('rgb(6, 17, 77)');
+    background('rgb(10, 10, 10)');
 }
