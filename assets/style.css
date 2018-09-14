@@ -1,0 +1,103 @@
+html, body {
+    height: 100%;
+}
+
+canvas {
+    border: none;
+    background-color: #030D4B;
+}
+
+body {
+    background-color: #030D4B;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#floater {
+    position: absolute;
+    z-index: 100;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */  
+}
+
+#floater h1{
+    color: #f74244;
+    font-size: 170px;
+    font-weight: 900;
+    letter-spacing: -4.2px;
+    line-height: 160px;
+    margin: 0;
+    padding: 0;
+}
+
+#floater p {
+    color: #DFE1E6;
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin: 0;
+    padding: 40px 0 0;
+}
+
+#info {
+    margin:0;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-size: 16px;
+    text-align: left;
+    color: #6B7191;
+    background: #030D4B;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    height: 10vh;
+}
+#info li {
+    /* padding: 25px 30px; */
+    list-style: none;
+    font-weight: 300;
+    padding-right: 30px;
+}
+#info li:first-child {
+    padding-left: 30px;
+    flex-grow: 1;
+}
+#info li span {
+    font-weight: 600;
+}
+
+#info li, #info a {
+    -moz-transition: color .2s ease-in;
+    -o-transition: color .2s ease-in;
+    -webkit-transition: color .2s ease-in;
+    transition: color .2s ease-in;
+}
+
+#info a:link, #info a:visited {
+    text-decoration: line-through;
+    color: #6B7191;
+}
+#info a:hover, #info a:active {
+    text-decoration: none;
+    color: #6B7191;
+}
+
+#info:hover li,
+#info:hover a:link, 
+#info:hover a:visited,
+#info:hover a:hover, 
+#info:hover a:active {
+    color: #DFE1E7;
+}
