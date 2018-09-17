@@ -7,16 +7,19 @@ let s = 3; // size
 let xs = 30;
 let ys = 30;
 let magic = 8;
+let backgroundColor = 'rgb(14, 14, 14)';
+let backgroundColorAlpha = 'rgba(14, 14, 14, 0.20)';
+let particleColor = 'rgb(80, 80, 80)';
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     noStroke();
-    fill(56, 56, 56);
-    background('rgb(10, 10, 10)');
+    fill(particleColor);
+    background(backgroundColor);
 }
 
 function draw() {
-    background('rgba(10, 10, 10, 0.20)');
+    background(backgroundColorAlpha);
 
     // make a x and y grid of ellipses
     for (let x = 0; x <= width; x = x + xs) {
@@ -40,5 +43,5 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
-    background('rgb(10, 10, 10)');
+    background(backgroundColor);
 }

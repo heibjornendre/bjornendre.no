@@ -4,7 +4,7 @@ html, body {
 
 canvas {
     border: none;
-    background-color: #0A0A0A;
+    background-color: rgb(14, 14, 14);
 }
 
 body {
@@ -40,6 +40,7 @@ body {
 #floater p {
     color: #c5c5c5;
     font-size: 42px;
+    line-height: 63px;
     font-weight: 600;
     letter-spacing: -1px;
     margin: 0;
@@ -51,6 +52,7 @@ body {
     padding: 0;
     width: 100%;
     position: absolute;
+    z-index: 1000;
     bottom: 0;
     font-size: 16px;
     text-align: left;
@@ -100,4 +102,28 @@ body {
 #info:hover a:hover, 
 #info:hover a:active {
     color: #DFE1E6;
+}
+
+@media screen and (max-width: 980px) {
+    #info{
+        flex-wrap: wrap;
+        text-align: center;
+        min-height: 100px;
+        line-height: 26px;
+        justify-content: space-around;
+    }
+    #info li:first-child {
+        flex-basis: 100%;
+    }
+    #info li:nth-child(2) {
+        padding-left: 30px;
+    }
+}
+@media screen and (max-width: 540px) {
+    #info{
+        flex-direction: column;
+    }
+    #info span {
+        display: block;
+    }
 }
