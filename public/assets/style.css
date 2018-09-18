@@ -8,8 +8,9 @@ canvas {
 }
 
 body {
-    background-color: #0A0A0A;
+    background-color: rgb(14, 14, 14);
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
     text-align: center;
     display: flex;
     align-items: center;
@@ -29,22 +30,57 @@ body {
 
 #floater h1{
     color: #F4F4F4;
-    font-size: 170px;
     font-weight: 900;
-    letter-spacing: -4.2px;
-    line-height: 160px;
+    letter-spacing: -0.25rem;
     margin: 0;
     padding: 0;
 }
 
+/* https://medium.com/@angelalagao/fluid-typography-868aa1346d9e */
+/* 
+    font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); 
+*/
+/* https://www.madebymike.com.au/writing/fluid-type-calc-examples/ */
+
+#floater h1 {
+    font-size: 5.625rem;
+}
+
+@media screen and (min-width: 40rem) {
+    #floater h1 {
+        font-size: calc(5.625rem + 13.125 * ((100vw - 40rem) / 80));
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    #floater h1 {
+        font-size: 18.75rem;
+    }
+}
+
 #floater p {
     color: #c5c5c5;
-    font-size: 42px;
-    line-height: 63px;
+    /* font-size: 42px; 27 */
     font-weight: 600;
     letter-spacing: -1px;
     margin: 0;
     padding: 40px 0 0;
+}
+
+#floater p {
+    font-size: 1.6875rem;
+}
+
+@media screen and (min-width: 40rem) {
+    #floater p {
+        font-size: calc(1.6875rem + 0.9375 * ((100vw - 40rem) / 80));
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    #floater p {
+        font-size: 2.625rem;
+    }
 }
 
 #info {
@@ -122,8 +158,12 @@ body {
 @media screen and (max-width: 540px) {
     #info{
         flex-direction: column;
+        flex-wrap: nowrap;
     }
     #info span {
         display: block;
+    }
+    #info li {
+        padding: 20px 0px !important;
     }
 }
