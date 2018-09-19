@@ -1,8 +1,5 @@
 # OFFLINE
 **503: Service Temporarily Unavailable**
-Personal offline website, learning and testing:
 
-* p5.js
-* git
-* continuous deployment
-* and more
+Personal offline website, playground to learn and test.
+[bjornendre.no](https://bjornendre.no)
