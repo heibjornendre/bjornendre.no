@@ -1,6 +1,8 @@
 // modified p5.js example
 // https://p5js.org/examples/interaction-wavemaker.html
 
+// TODO: optimize for mobile
+
 let t = 0; // time variable
 let ti = 0.0002; // time increment
 let s = 3; // size
@@ -12,7 +14,10 @@ let backgroundColorAlpha = 'rgba(14, 14, 14, 0.20)';
 let particleColor = 'rgb(80, 80, 80)';
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
+    let cnvParent = document.getElementById('dotcanvas');
+    let cnv = createCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
+    cnv.parent('dotcanvas');
+
     noStroke();
     fill(particleColor);
     background(backgroundColor);
@@ -42,6 +47,7 @@ function draw() {
 }
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    let cnvParent = document.getElementById('dotcanvas');
+    resizeCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
     background(backgroundColor);
 }
