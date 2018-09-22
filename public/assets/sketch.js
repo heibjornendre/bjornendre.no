@@ -3,6 +3,10 @@
 
 // TODO: optimize for mobile
 
+let cnvParent = document.getElementById('dotcanvas');
+let cnvWidth = cnvParent.offsetWidth;
+let cnvHeight = cnvParent.offsetHeight;
+
 let t = 0; // time variable
 let ti = 0.0002; // time increment
 let s = 3; // size
@@ -13,9 +17,10 @@ let backgroundColor = 'rgb(14, 14, 14)';
 let backgroundColorAlpha = 'rgba(14, 14, 14, 0.20)';
 let particleColor = 'rgb(80, 80, 80)';
 
+let paused = false;
+
 function setup() {
-    let cnvParent = document.getElementById('dotcanvas');
-    let cnv = createCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
+    let cnv = createCanvas(cnvWidth, cnvHeight);
     cnv.parent('dotcanvas');
 
     noStroke();
@@ -51,3 +56,15 @@ function windowResized() {
     resizeCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
     background(backgroundColor);
 }
+
+function keyPressed() {
+    if (keyCode === 32) {
+      if (paused) {
+          loop();
+      } else {
+          noLoop();
+      }
+      paused = !paused;
+    }
+    return false; // prevent default
+  }
