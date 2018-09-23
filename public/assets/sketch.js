@@ -65,6 +65,6 @@ function keyPressed() {
           noLoop();
       }
       paused = !paused;
+      return false; // prevent default
     }
-    return false; // prevent default
   }
