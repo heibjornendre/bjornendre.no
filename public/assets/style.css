@@ -60,6 +60,7 @@ footer li {
 }
 footer li a {
     position: relative;
+    padding: 5px 0;
 }
 footer li a:after {
     content: ' ';
@@ -213,8 +214,7 @@ footer a:hover:after {
 }
 
 #floatin p {
-    color: #c5c5c5;
-    color:  #E44C4E;
+    color: #175eff;
     font-weight: 600;
     letter-spacing: -1px;
     margin: 0;

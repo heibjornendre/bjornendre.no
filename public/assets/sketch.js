@@ -22,7 +22,7 @@ let paused = false;
 function setup() {
     let cnv = createCanvas(cnvWidth, cnvHeight);
     cnv.parent('dotcanvas');
-
+    
     noStroke();
     fill(particleColor);
     background(backgroundColor);
