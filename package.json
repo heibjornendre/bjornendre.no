@@ -1,0 +1,10 @@
+{
+  "name": "bjornendre.no",
+  "version": "1.0.0",
+  "description": "Personal offline website, playground to learn and test.",
+  "main": "index.js",
+  "repository": "https://github.com/heibjornendre/bjornendre.no.git",
+  "author": "heibjornendre <bjorn.breivik@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
