@@ -1,5 +1,10 @@
 import Head from 'next/head'
-import DotCanvas from '../components/DotCanvas'
+import dynamic from 'next/dynamic'
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('../components/DotCanvas'),
+  { ssr: false }
+)
 
 export default function Home() {
   return (
@@ -23,7 +28,7 @@ export default function Home() {
       </Head>
       <div id="flexin">
         <section id="dotcanvas">
-          <DotCanvas />
+            <DynamicComponentWithNoSSR />
             <div id="floatin">
                 <h1>Offline</h1>
                 <p>503: Service Temporarily Unavailable</p>
