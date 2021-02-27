@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import DotCanvas from '../components/DotCanvas'
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       </Head>
       <div id="flexin">
         <section id="dotcanvas">
+          <DotCanvas />
             <div id="floatin">
                 <h1>Offline</h1>
                 <p>503: Service Temporarily Unavailable</p>
