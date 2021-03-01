@@ -1,5 +1,7 @@
 html, body, #__next {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -18,7 +20,7 @@ body {
   height: 100%;
 }
 
-#dotcanvas {
+#canvasWrapper {
   background-color: rgb(14, 14, 14);
   width: 100vw;
   flex-grow: 1;
@@ -102,7 +104,6 @@ footer a:link, footer a:visited {
   text-decoration: none;
   color: #616161;
 }
-
 footer a:hover, footer a:active {
   color: #616161;
 }
@@ -119,6 +120,19 @@ footer:hover a:after {
 }
 footer a:hover:after {
   width: 0%;
+}
+
+footer:focus-within {
+  color: #DFE1E6;
+}
+footer a:focus {
+  outline: 2px solid #175eff;
+  outline-offset: 10px;
+  color: #DFE1E6;
+}
+footer a:focus:after {
+  width: 0%;
+  background-color: #DFE1E6;
 }
 
 

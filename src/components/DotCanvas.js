@@ -1,13 +1,7 @@
-// https://github.com/Gherciu/react-p5
-// https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97
-// https://dev.to/gssudharsan/integrating-p5-js-with-react-3g5e
-// https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
-
-
 import Sketch from 'react-p5'
 
 const DotCanvas = () => {
-    let cnvParent = document.getElementById('dotcanvas');
+    let cnvParent = document.getElementById('canvasWrapper');
     let cnvWidth = cnvParent.offsetWidth;
     let cnvHeight = cnvParent.offsetHeight;
 
