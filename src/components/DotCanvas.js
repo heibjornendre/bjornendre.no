@@ -2,18 +2,18 @@ import Sketch from 'react-p5'
 
 const DotCanvas = () => {
     let cnvParent = document.getElementById('canvasWrapper');
-    let cnvWidth = cnvParent.offsetWidth;
-    let cnvHeight = cnvParent.offsetHeight;
+    const cnvWidth = cnvParent.offsetWidth;
+    const cnvHeight = cnvParent.offsetHeight;
 
-    let t = 0; // time variable
-    let ti = 0.0002; // time increment
-    let s = 3; // size
-    let xs = 60;
-    let ys = 60;
-    let magic = 2.5;
-    let backgroundColor = 'rgb(14, 14, 14)';
-    let backgroundColorAlpha = 'rgba(14, 14, 14, 0.20)';
-    let particleColor = 'rgb(80, 80, 80)';
+    let time = 0; // time variable
+    const timeIncrement = 0.0002; // time increment
+    const s = 3; // size
+    const xs = 60;
+    const ys = 60;
+    const magic = 2.5;
+    const backgroundColor = 'rgb(14, 14, 14)';
+    const backgroundColorAlpha = 'rgba(14, 14, 14, 0.20)';
+    const particleColor = 'rgb(80, 80, 80)';
 
     let paused = false;
 
@@ -38,21 +38,23 @@ const DotCanvas = () => {
                 let angle = xAngle * (x / p5.width) + yAngle * (y / p5.height);
 
                 // each particle moves in a circle
-                let myX = x + xs * p5.cos(20 * p5.PI * t + angle);
-                let myY = y + ys * p5.sin(2 * p5.PI * t + angle);
+                let myX = x + xs * p5.cos(20 * p5.PI * time + angle);
+                let myY = y + ys * p5.sin(2 * p5.PI * time + angle);
 
                 // draw particle
                 p5.ellipse(myX, myY, s); 
             }
         }
 
+        p5.noLoop();
+
         // update time
-        t = t + ti; 
+        time = time + timeIncrement; 
     }
 
     const keyPressed = (event) => {
         // TODO: fix this...
-        console.log("key pressed!");
+        // spacebar
         if (event.keyCode === 32) {
             if (paused) {
                 // loop();
@@ -67,8 +69,14 @@ const DotCanvas = () => {
     }
 
     // TODO: windowResized
+    const windowResized = () => {
+        console.log("window resized");
+        // let cnvParent = document.getElementById('canvasWrapper');
+        // resizeCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
+        // p5.background(backgroundColor);
+    }
 
-    return <Sketch setup={setup} draw={draw} keyPressed={keyPressed}/>
+    return <Sketch setup={setup} draw={draw} keyPressed={keyPressed} windowResized={windowResized}/>
 }
 
 export default DotCanvas
