@@ -1,81 +1,73 @@
 import Sketch from 'react-p5'
 
 const DotCanvas = () => {
-    let cnvParent = document.getElementById('canvasWrapper');
-    const cnvWidth = cnvParent.offsetWidth;
-    const cnvHeight = cnvParent.offsetHeight;
+    let canvasWrapper = document.getElementById('canvasWrapper');
+    const canvasWrapperWidth = canvasWrapper.offsetWidth;
+    const canvasWrapperHeight = canvasWrapper.offsetHeight;
 
-    let time = 0; // time variable
-    const timeIncrement = 0.0002; // time increment
-    const s = 3; // size
-    const xs = 60;
-    const ys = 60;
+    let time = 0;
+    const particleSpeed = 0.0002;
+    const particleSize = 5;
+    const xMargin = 60;
+    const yMargin = 60;
     const magic = 2.5;
     const backgroundColor = 'rgb(14, 14, 14)';
-    const backgroundColorAlpha = 'rgba(14, 14, 14, 0.20)';
-    const particleColor = 'rgb(80, 80, 80)';
+    const backgroundColorAlpha = 'rgba(14, 14, 14, 0.2)';
+    const particleColor = 'rgb(60, 60, 60)';
 
     let paused = false;
 
-    let p5ref;
-
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(cnvWidth,cnvHeight).parent(canvasParentRef);
+        p5.createCanvas(canvasWrapperWidth,canvasWrapperHeight).parent(canvasParentRef);
 
         p5.noStroke();
         p5.fill(particleColor);
         p5.background(backgroundColor);
-
-        p5ref = p5;
     }
     
     const draw = (p5) => {
+
         p5.background(backgroundColorAlpha);
 
         // make a x and y grid of ellipses
-        for (let x = 0; x <= p5.width; x = x + xs) {
-            for (let y = 0; y <= p5.height; y = y + ys) {
+        for (let x = 0; x <= p5.width; x = x + xMargin) {
+            for (let y = 0; y <= p5.height; y = y + yMargin) {
+                
                 // starting point of each circle depends on mouse position
                 let xAngle = p5.map(p5.mouseX, 0, p5.width, -magic * p5.PI, magic * p5.PI, true);
                 let yAngle = p5.map(p5.mouseY, 0, p5.height, -magic * p5.PI, magic * p5.PI, true);
+
                 // and also varies based on the particle's location
                 let angle = xAngle * (x / p5.width) + yAngle * (y / p5.height);
 
                 // each particle moves in a circle
-                let myX = x + xs * p5.cos(20 * p5.PI * time + angle);
-                let myY = y + ys * p5.sin(2 * p5.PI * time + angle);
+                let myX = x + xMargin * p5.cos(20 * p5.PI * time + angle);
+                let myY = y + yMargin * p5.sin(2 * p5.PI * time + angle);
 
                 // draw particle
-                p5.ellipse(myX, myY, s); 
+                p5.ellipse(myX, myY, particleSize); 
             }
         }
 
-        // p5.noLoop();
-
         // update time
-        time = time + timeIncrement; 
+        time = time + particleSpeed; 
     }
 
     const keyPressed = (p5) => {
-        // TODO: fix this...
         // spacebar
         if (p5.keyCode === 32) {
             if (paused) {
                 p5.loop();
-                console.log("loop()");
             } else {
                 p5.noLoop();
-                console.log("noLoop()");
             }
             paused = !paused;
             return false; // prevent default
         }
     }
 
-    // TODO: windowResized
     const windowResized = (p5) => {
-        console.log("window resized");
-        p5.resizeCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
+        p5.resizeCanvas(canvasWrapperWidth, canvasWrapperHeight);
         p5.background(backgroundColor);
     }
 
