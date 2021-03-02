@@ -6,9 +6,9 @@ const DotCanvas = () => {
     let time = 0;
     const particleSpeed = 0.0002;
     const particleSize = 5;
-    const xMargin = 60;
-    const yMargin = 60;
-    const magic = 2.5;
+    const particleXspacing = 60;
+    const particleYspacing = 60;
+    const particleMouseInfluence = 1.5;
     const backgroundColor = 'rgb(14, 14, 14)';
     const backgroundColorAlpha = 'rgba(14, 14, 14, 0.2)';
     const particleColor = 'rgb(60, 60, 60)';
@@ -28,20 +28,20 @@ const DotCanvas = () => {
         p5.background(backgroundColorAlpha);
 
         // make a x and y grid of ellipses
-        for (let x = 0; x <= p5.width; x = x + xMargin) {
-            for (let y = 0; y <= p5.height; y = y + yMargin) {
+        for (let x = 0; x <= p5.width; x = x + particleXspacing) {
+            for (let y = 0; y <= p5.height; y = y + particleYspacing) {
                 
                 // starting point of each circle depends on mouse position
                 // map(value, start1, stop1, start2, stop2, [withinBounds])
-                let xAngle = p5.map(p5.mouseX, 0, p5.width, -magic * p5.PI, magic * p5.PI, true);
-                let yAngle = p5.map(p5.mouseY, 0, p5.height, -magic * p5.PI, magic * p5.PI, true);
+                let xAngle = p5.map(p5.mouseX, 0, p5.width, -particleMouseInfluence * p5.PI, particleMouseInfluence * p5.PI, true);
+                let yAngle = p5.map(p5.mouseY, 0, p5.height, -particleMouseInfluence * p5.PI, particleMouseInfluence * p5.PI, true);
 
                 // and also varies based on the particle's location
                 let angle = xAngle * (x / p5.width) + yAngle * (y / p5.height);
 
                 // each particle moves in a circle
-                let myX = x + xMargin * p5.cos(20 * p5.PI * time + angle);
-                let myY = y + yMargin * p5.sin(2 * p5.PI * time + angle);
+                let myX = x + particleXspacing * p5.cos(20 * p5.PI * time + angle);
+                let myY = y + particleYspacing * p5.sin(2 * p5.PI * time + angle);
 
                 // draw particle
                 p5.ellipse(myX, myY, particleSize); 

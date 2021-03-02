@@ -21,7 +21,9 @@ body {
 }
 
 #canvasWrapper {
+  // TODO: fix so that the canvas takes opp full height of canvasWrapper
   background-color: rgb(14, 14, 14);
+  // background-color: rgb(255, 255, 245); 
   width: 100vw;
   flex-grow: 1;
   display: flex;
