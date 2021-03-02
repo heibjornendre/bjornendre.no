@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic'
 import Meta from '../components/meta'
+import Footer from '../components/Footer'
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import('../components/DotCanvas'),
@@ -19,18 +20,23 @@ export default function Home() {
             </div>
         </section>
 
-        <footer>
-            <ul className="thedude">
-                <li>Bjørn Endre Langeland</li>
-                <li>Graphic Designer in Oslo, Norway.</li>
-            </ul>
-            <ul className="links">
-                {/* <li><a href="https://www.behance.net/bjornendre" title="behance.net/bjornendre">Behance</a></li> */}
-                <li><a href="https://www.instagram.com/heibjornendre/" title="instagram.com/heibjornendre/">Instagram</a></li>
-                <li><a href="https://www.linkedin.com/in/bjornendre/" title="linkedin.com/in/bjornendre/">Linkedin</a></li>
-                {/* <li><a href="https://www.creuna.no" title="creuna.no">Creuna</a></li> */}
-            </ul>
-        </footer>
+        <Footer 
+          name = 'Bjørn Endre Langeland' 
+          description= 'Graphic Designer in Oslo, Norway.'
+          links = {[
+            {
+                name: 'Instagram',
+                title: 'instagram.com/heibjornendre/',
+                url: 'https://www.instagram.com/heibjornendre/'
+            },
+            {
+                name: 'Linkedin',
+                title: 'linkedin.com/in/bjornendre/',
+                url: 'https://www.linkedin.com/in/bjornendre/'
+            }
+          ]}
+        />
+
       </div>
     </>
   )
