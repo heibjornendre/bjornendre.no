@@ -2,8 +2,6 @@ import Sketch from 'react-p5'
 
 const DotCanvas = () => {
     let canvasWrapper = document.getElementById('canvasWrapper');
-    const canvasWrapperWidth = canvasWrapper.offsetWidth;
-    const canvasWrapperHeight = canvasWrapper.offsetHeight;
 
     let time = 0;
     const particleSpeed = 0.0002;
@@ -18,8 +16,8 @@ const DotCanvas = () => {
     let paused = false;
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(canvasWrapperWidth,canvasWrapperHeight).parent(canvasParentRef);
-
+        p5.createCanvas(canvasWrapper.offsetWidth,canvasWrapper.offsetHeight).parent(canvasParentRef);
+        console.log(canvasWrapper.offsetWidth, canvasWrapper.offsetHeight);
         p5.noStroke();
         p5.fill(particleColor);
         p5.background(backgroundColor);
@@ -34,6 +32,7 @@ const DotCanvas = () => {
             for (let y = 0; y <= p5.height; y = y + yMargin) {
                 
                 // starting point of each circle depends on mouse position
+                // map(value, start1, stop1, start2, stop2, [withinBounds])
                 let xAngle = p5.map(p5.mouseX, 0, p5.width, -magic * p5.PI, magic * p5.PI, true);
                 let yAngle = p5.map(p5.mouseY, 0, p5.height, -magic * p5.PI, magic * p5.PI, true);
 
@@ -67,7 +66,7 @@ const DotCanvas = () => {
     }
 
     const windowResized = (p5) => {
-        p5.resizeCanvas(canvasWrapperWidth, canvasWrapperHeight);
+        p5.resizeCanvas(canvasWrapper.offsetWidth, canvasWrapper.offsetHeight);
         p5.background(backgroundColor);
     }
 
