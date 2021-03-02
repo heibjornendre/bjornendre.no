@@ -1,0 +1,144 @@
+.footer {
+    width: 100%;
+    flex-basis: 10%;
+    min-height: 70px;
+    max-height: 120px;
+    font-size: 1rem;
+    line-height: 1.3;
+    color: #616161;
+    background: #191919;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.footer .thedude,
+.footer .links {
+  margin:0;
+  padding: 30px;
+  display: flex;
+}
+
+.footer li {
+  list-style: none;
+  margin:0;
+  padding:0 30px 0 0;
+}
+.footer li a {
+  position: relative;
+  padding: 5px 0;
+}
+.footer li a:after {
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #616161;
+}
+
+.footer ul:first-child li:first-child {
+  font-weight: 600;
+  padding-right: 10px;
+}
+
+.footer li:last-child {
+  padding:0;
+}
+
+.footer li, .footer a {
+  -moz-transition: color .2s ease-in;
+  -o-transition: color .2s ease-in;
+  -webkit-transition: color .2s ease-in;
+  transition: color .2s ease-in;
+}
+.footer a:after {
+  -moz-transition: background-color .2s ease-in, 
+  width 0.3s cubic-bezier(0.74, 0, 0.46, 1.02);
+  -o-transition: background-color .2s ease-in, 
+  width 0.3s cubic-bezier(0.74, 0, 0.46, 1.02);
+  -webkit-transition: background-color .2s ease-in, 
+  width 0.3s cubic-bezier(0.74, 0, 0.46, 1.02);
+  transition: background-color .2s ease-in, 
+  width 0.3s cubic-bezier(0.74, 0, 0.46, 1.02);
+}
+
+.footer a:link, .footer a:visited {
+  text-decoration: none;
+  color: #616161;
+}
+.footer a:hover, .footer a:active {
+  color: #616161;
+}
+
+.footer:hover li,
+.footer:hover a:link, 
+.footer:hover a:visited,
+.footer:hover a:hover, 
+.footer:hover a:active {
+  color: #DFE1E6;
+}
+.footer:hover a:after {
+  background-color: #DFE1E6;
+}
+.footer a:hover:after {
+  width: 0%;
+}
+
+.footer:focus-within {
+  color: #DFE1E6;
+}
+.footer a:focus {
+  outline: 2px solid #175eff;
+  outline-offset: 10px;
+  color: #DFE1E6;
+}
+.footer a:focus:after {
+  width: 0%;
+  background-color: #DFE1E6;
+}
+
+
+@media screen and (max-width: 800px) {
+  .footer {
+      align-items: flex-start;
+      flex-basis: auto;
+      min-height: auto;
+      max-height: none;
+  }
+  .footer, 
+  .footer a:link,
+  .footer a:visited,
+  .footer a:hover,
+  .footer a:active  {
+      color: white;
+  }
+  .footer li a:after {
+      background-color: white;
+  }
+  .footer .thedude,
+  .footer .links {
+      display: block;
+  }
+}
+@media screen and (max-width: 450px) {
+  .footer {
+      display: block;
+  }
+  .footer, 
+  .footer a:link,
+  .footer a:visited,
+  .footer a:hover,
+  .footer a:active  {
+      color: white;
+  }
+  .footer li a:after {
+      background-color: white;
+  }
+  .footer ul:first-child {
+      padding-bottom: 0;
+  }
+
+}

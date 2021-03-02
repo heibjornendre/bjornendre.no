@@ -1,13 +1,14 @@
+import styles from './Footer.module.scss'
 
 function Footer({name, description, links}) {
     return (
-        <footer>
-            <ul className="thedude">
+        <footer className={styles.footer}>
+            <ul className={styles.thedude}>
                 <li>{name}</li>
                 <li>{description}</li>
             </ul>
             {links &&
-                <ul className="links">
+                <ul className={styles.links}>
                         {links.map((link) => (
                             <li key={link.url}>
                                 <a href={link.url} title={link.title}>{link.name}</a>
