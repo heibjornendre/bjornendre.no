@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import Meta from '../components/meta'
+import Meta from '../components/Meta'
 import Footer from '../components/Footer'
 
 const DynamicComponentWithNoSSR = dynamic(

@@ -17,12 +17,16 @@ const DotCanvas = () => {
 
     let paused = false;
 
+    let p5ref;
+
     const setup = (p5, canvasParentRef) => {
         p5.createCanvas(cnvWidth,cnvHeight).parent(canvasParentRef);
 
         p5.noStroke();
         p5.fill(particleColor);
         p5.background(backgroundColor);
+
+        p5ref = p5;
     }
     
     const draw = (p5) => {
@@ -46,34 +50,33 @@ const DotCanvas = () => {
             }
         }
 
-        p5.noLoop();
+        // p5.noLoop();
 
         // update time
         time = time + timeIncrement; 
     }
 
-    const keyPressed = (event) => {
+    const keyPressed = (p5) => {
         // TODO: fix this...
         // spacebar
-        if (event.keyCode === 32) {
+        if (p5.keyCode === 32) {
             if (paused) {
-                // loop();
+                p5.loop();
                 console.log("loop()");
             } else {
-                // noLoop();
+                p5.noLoop();
                 console.log("noLoop()");
             }
             paused = !paused;
             return false; // prevent default
-          }
+        }
     }
 
     // TODO: windowResized
-    const windowResized = () => {
+    const windowResized = (p5) => {
         console.log("window resized");
-        // let cnvParent = document.getElementById('canvasWrapper');
-        // resizeCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
-        // p5.background(backgroundColor);
+        p5.resizeCanvas(cnvParent.offsetWidth, cnvParent.offsetHeight);
+        p5.background(backgroundColor);
     }
 
     return <Sketch setup={setup} draw={draw} keyPressed={keyPressed} windowResized={windowResized}/>
